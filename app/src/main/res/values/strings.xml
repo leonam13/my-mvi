@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyMvi</string>
+    <string name="error_load_flag">Erro ao carregar bandeiras!</string>
+</resources>
