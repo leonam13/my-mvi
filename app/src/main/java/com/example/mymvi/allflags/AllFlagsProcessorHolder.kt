@@ -28,6 +28,8 @@ class AllFlagsProcessorHolder(private val flagRepository: FlagRepository) {
                     .onErrorReturn { LoadAllFlagsResult.Error(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribeOn(Schedulers.trampoline())
+//                    .observeOn(Schedulers.trampoline())
                     .startWith(LoadAllFlagsResult.Loading)
             }
         }
@@ -41,6 +43,8 @@ class AllFlagsProcessorHolder(private val flagRepository: FlagRepository) {
                     .onErrorReturn { ClearAllFlagsResult.Error(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribeOn(Schedulers.trampoline())
+//                    .observeOn(Schedulers.trampoline())
                     .startWith(ClearAllFlagsResult.Loading)
             }
         }
