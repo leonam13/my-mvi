@@ -6,10 +6,13 @@ import java.util.concurrent.TimeUnit
 
 class FlagRepository(private val flagDataState: FlagDataSource) {
 
-    fun getFlags(): Observable<List<Flag>> =
+    fun getFlags(code: String?): Observable<List<Flag>> =
         //Observable.error(NullPointerException("Lista Vazia"))
-        Observable.just(flagDataState.flags)
-            .delay(3, TimeUnit.SECONDS)
+        Observable.just(
+            code?.let { flagDataState.flags.filter { it.code == code } }
+                ?: flagDataState.flags
+        ).delay(3, TimeUnit.SECONDS)
 
-    fun removeAllFlags(): Observable<List<Flag>> = Observable.just(emptyList<Flag>()).delay(3, TimeUnit.SECONDS)
+    fun removeAllFlags(): Observable<List<Flag>> =
+        Observable.just(emptyList<Flag>()).delay(3, TimeUnit.SECONDS)
 }

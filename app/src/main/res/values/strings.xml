@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MyMvi</string>
     <string name="error_load_flag">Erro ao carregar bandeiras!</string>
+    <string name="south_american_code">SA</string>
+    <string name="europe_code">EU</string>
+    <string name="all_flags_btn">Todos</string>
+    <string name="south_america_btn">América do Sul</string>
+    <string name="europe_btn">Europa</string>
+    <string name="remove_all_btn">Remover Todos</string>
 </resources>

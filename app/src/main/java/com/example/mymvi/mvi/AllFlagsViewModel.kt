@@ -57,7 +57,7 @@ class AllFlagsViewModel(private val processor: AllFlagsProcessorHolder) :
      * autoConnect(0) to make sure the connection is immediate.
      */
     private fun compose(): Observable<AllFlagsState> = intentsSubject
-        .compose(intentFilter)
+        //.compose(intentFilter)
         .map(this::actionFromIntent)
         .compose(processor.actionProcess)
         .scan(AllFlagsState.default(), reducer)
@@ -69,7 +69,7 @@ class AllFlagsViewModel(private val processor: AllFlagsProcessorHolder) :
      * Map intents to Actions
      */
     private fun actionFromIntent(intent: AllFlagsIntent) = when (intent) {
-        is LoadAllFlagsIntent -> LoadAllFlagsAction
+        is LoadAllFlagsIntent -> LoadAllFlagsAction(intent.code)
         is ClearAllFlagsIntent -> ClearAllFlagsAction
     }
 

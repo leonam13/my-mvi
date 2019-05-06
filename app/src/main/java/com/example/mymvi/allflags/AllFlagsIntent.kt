@@ -9,6 +9,6 @@ import com.example.mymvi.mvibase.MviIntent
  **/
 
 sealed class AllFlagsIntent : MviIntent {
-    object LoadAllFlagsIntent : AllFlagsIntent()
+    data class LoadAllFlagsIntent(val code: String? = null) : AllFlagsIntent()
     object ClearAllFlagsIntent : AllFlagsIntent()
 }

@@ -21,8 +21,8 @@ class AllFlagsProcessorHolder(private val flagRepository: FlagRepository) {
 
     private val loadAllFlagsProcessor =
         ObservableTransformer<LoadAllFlagsAction, LoadAllFlagsResult> { actions ->
-            actions.flatMap {
-                flagRepository.getFlags()
+            actions.flatMap { action ->
+                flagRepository.getFlags(action.code)
                     .map { flags -> LoadAllFlagsResult.Success(flags) }
                     .cast(LoadAllFlagsResult::class.java)
                     .onErrorReturn { LoadAllFlagsResult.Error(it) }

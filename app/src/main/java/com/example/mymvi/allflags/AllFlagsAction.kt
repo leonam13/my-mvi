@@ -9,6 +9,6 @@ import com.example.mymvi.mvibase.MviAction
  **/
 
 sealed class AllFlagsAction : MviAction {
-    object LoadAllFlagsAction : AllFlagsAction()
+    data class LoadAllFlagsAction(val code: String? = null) : AllFlagsAction()
     object ClearAllFlagsAction : AllFlagsAction()
 }

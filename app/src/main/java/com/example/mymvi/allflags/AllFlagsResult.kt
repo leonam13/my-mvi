@@ -14,7 +14,7 @@ import com.example.mymvi.mvibase.MviResult
 
 sealed class AllFlagsResult : MviResult {
 
-    sealed class LoadAllFlagsResult : AllFlagsResult() {
+    sealed class LoadAllFlagsResult() : AllFlagsResult() {
         object Loading : LoadAllFlagsResult()
         data class Success(val flags: List<Flag>) : LoadAllFlagsResult()
         data class Error(val error: Throwable) : LoadAllFlagsResult()

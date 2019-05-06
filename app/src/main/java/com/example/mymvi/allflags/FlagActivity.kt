@@ -77,16 +77,17 @@ class FlagActivity : AppCompatActivity(), MviView<AllFlagsIntent, AllFlagsState>
     /**
      * We transform our publishers in observables.
      * In case the item is called for the user it should be a publisher,
-     * Otherwise if the system calls to the intent, can be a simple Observable passing the intent.
+     * Otherwise if the system calls to the intent, can be a simple Observable.
      */
     private fun clearFlags(): Observable<ClearAllFlagsIntent> = clearAllFlagsPublisher
 
-    private fun loadFlags(): Observable<LoadAllFlagsIntent> = loadAllFlagsPublisher//Observable.just(LoadAllFlagsIntent)
+    private fun loadFlags(): Observable<LoadAllFlagsIntent> = loadAllFlagsPublisher
+    //Observable.just(LoadAllFlagsIntent)
 
     private fun setListeners() {
-        allFlagsBtn.setOnClickListener { loadAllFlagsPublisher.onNext(LoadAllFlagsIntent) }
-        europeBtn.setOnClickListener { }
-        southAmericaBtn.setOnClickListener { }
+        allFlagsBtn.setOnClickListener { loadAllFlagsPublisher.onNext(LoadAllFlagsIntent()) }
+        europeBtn.setOnClickListener { loadAllFlagsPublisher.onNext(LoadAllFlagsIntent(it.tag as String)) }
+        southAmericaBtn.setOnClickListener { loadAllFlagsPublisher.onNext(LoadAllFlagsIntent(it.tag as String)) }
         clearBtn.setOnClickListener { clearAllFlagsPublisher.onNext(ClearAllFlagsIntent) }
     }
 

@@ -32,13 +32,14 @@
             android:layout_marginTop="80dp"
             app:layout_constraintEnd_toStartOf="@id/southAmericaBtn"
             android:id="@+id/allFlagsBtn"
-            android:text="Todos"
+            android:text="@string/all_flags_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     <Button
             android:id="@+id/southAmericaBtn"
-            android:text="América do Sul"
+            android:text="@string/south_america_btn"
+            android:tag="@string/south_american_code"
             app:layout_constraintTop_toTopOf="@id/allFlagsBtn"
             app:layout_constraintStart_toEndOf="@id/allFlagsBtn"
             app:layout_constraintEnd_toStartOf="@id/europeBtn"
@@ -47,7 +48,8 @@
 
     <Button
             android:id="@+id/europeBtn"
-            android:text="Europa"
+            android:text="@string/europe_btn"
+            android:tag="@string/europe_code"
             app:layout_constraintTop_toTopOf="@id/allFlagsBtn"
             app:layout_constraintStart_toEndOf="@id/southAmericaBtn"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +59,7 @@
 
     <Button
             android:id="@+id/clearBtn"
-            android:text="Remover Todos"
+            android:text="@string/remove_all_btn"
             app:layout_constraintTop_toBottomOf="@id/allFlagsBtn"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp"
